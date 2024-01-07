@@ -1,6 +1,7 @@
 <?php
  
- 
+// Trendyol - Mecnun Kilinc
+
 class trendyol {
 	 
 	 
@@ -17,8 +18,7 @@ class trendyol {
         $categories = json_decode($result, true);
  
         foreach ($categories['categories'] as $smcategoryId) {
-
-            $this->getSubCategories($smcategoryId['name'], $smcategoryId['subCategories']);
+            $this->getAltKategoriler($smcategoryId['name'], $smcategoryId['subCategories']);
         }
   
     
@@ -26,7 +26,7 @@ class trendyol {
 
     // Tek başına çağırılmaz.Önce Kategoriler() fonksiyonu çağırılır.
 	
-    public function getSubCategories($parentName, $subcats = array()) {
+    public function getAltKategoriler($parentName, $subcats = array()) {
 
        
 
@@ -35,7 +35,7 @@ class trendyol {
 
             if ($subcat['subCategories']) {
 
-                $this->getSubCategories($parentName . " > " . $subcat['name'], $subcat['subCategories']);
+                $this->getAltKategoriler($parentName . " > " . $subcat['name'], $subcat['subCategories']);
             
 			} else {
 
