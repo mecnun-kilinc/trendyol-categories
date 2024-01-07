@@ -1,1 +1,1 @@
-# trendyol-categories
+# trendyol kategoriler
